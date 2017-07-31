@@ -12,7 +12,7 @@ RabbitMQ和邮局之间的主要区别在于RabbitMQ不处理文件，而是接�
 
 RabbitMQ和消息传递一般使用一些术语。
 
-- 生产者
+## 生产者
 
 生产无非就是发送，发送消息的程序就是一个生产者，我们使用“P”来描述它。
 
@@ -24,7 +24,7 @@ RabbitMQ和消息传递一般使用一些术语。
 
 ![queue.png](http://www.rabbitmq.com/img/tutorials/queue.png)
 
-- 消费者
+## 消费者
 
 消费与接收的含义相似，一个消费者通常是一个等着接受消息的程序，我们使用"C"来描述：
 
@@ -54,7 +54,7 @@ RabbitMQ和消息传递一般使用一些术语。
 
 现在我们有Java客户端及其依赖关系，我们可以编写一些代码。
 
-- 发送
+### 发送
 
 ![sending.png](http://www.rabbitmq.com/img/tutorials/sending.png)
 
@@ -107,7 +107,7 @@ RabbitMQ和消息传递一般使用一些术语。
 
 > 如果你是第一次使用RabbitMQ并且你没有看到"Sent"消息，你可能抓耳挠腮的想到底是哪里出的问题。可能是代理启动时没有足够空间(默认它需要至少1Gb 空间)，因此拒绝接受消息。通过检查代理的日志文件来确定这个问题，必要情况下可以降低限制大小。配置文件的文档将会告诉你怎样设置disk_free_limit。
 
-- 接收
+### 接收
 
 上面代码是构建我们的发送者。我们的接收者是从RabbitMQ中提取消息，所以不像发送者那样发送一个简单的消息，我们需要一直运行监听消息并且输出消息。
 
@@ -155,7 +155,7 @@ RabbitMQ和消息传递一般使用一些术语。
 
 这是整个[Recv.java](http://github.com/rabbitmq/rabbitmq-tutorials/blob/master/java/Recv.java)类。
 
-- 把它们放在一起
+### 把它们放在一起
 
 您可以在类路径上只使用RabbitMQ java客户端来编译这两个：
 
