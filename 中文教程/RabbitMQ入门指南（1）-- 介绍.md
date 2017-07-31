@@ -1,8 +1,8 @@
-###RabbitMQ入门指南（1）--介绍
+### RabbitMQ入门指南（1）--介绍
 
 声明：本文都是参考RabbitMQ的官方指南翻译过来的，由于本人水平有限难免有翻译不当的地方，敬请谅解。
 
-> #####前提条件
+> ##### 前提条件
 >本教程假定RabbitMQ 已在标准端口（5672）上的localhost上安装并运行。如果使用不同的主机，端口或凭据，连接设置将需要调整。 
 
 RabbitMQ是一个消息代理：它接受并转发消息。您可以将其视为邮局：当您将要发送的邮件放入邮箱中时，您可以确信邮递员最终会将邮件送到收件人的手中。RabbitMQ是就相当于一个邮箱，邮局和邮递员。
@@ -22,16 +22,16 @@ RabbitMQ和消息传递一般使用一些术语。
 消费与接收的含义相似，一个消费者通常是一个等着接受消息的程序，我们使用"C"来描述：
 ![consumer.png](http://www.rabbitmq.com/img/tutorials/consumer.png)
 
-> #####注意
+> ##### 注意
 生产者，消费者和代理者不需要一定在同一个机器上，事实上，大多数应用程序中，他们并不在同一个机器上。
 
-####"Hello World"（使用Java客户端）
+#### "Hello World"（使用Java客户端）
 在本教程的这一部分，我们将使用Java编写两个程序; 一个发送单个消息的生产者，以及一个接收消息并将其打印输出的消费者。我们将会忽视掉一些Java API的细节，只专注于这个非常简单的事情，即“Hello World”的消息传递。
 
 在下图中，“P”是我们的生产者，“C”是我们的消费者。中间的框是队列，即RabbitMQ消费者的消息缓冲区。
 ![python-one.png](http://www.rabbitmq.com/img/tutorials/python-one.png)
 
-> #####Java客户端库
+> ##### Java客户端库
 > RabbitMQ 遵循[AMQP协议](http://www.amqp.org/),那是一个开放的，并且通用的消息协议，用于消息传递。本教程使用AMQP 0-9-1，它有许多不同语言的 RabbitMQ客户端。我们将使用RabbitMQ提供的Java客户端。
 >下载[客户端库](http://central.maven.org/maven2/com/rabbitmq/amqp-client/4.0.2/amqp-client-4.0.2.jar) 及其依赖项（SLF4J API和 SLF4J Simple）。根据教程将这些Java文件复制到工作目录中。
 >请注意本教程依赖SLF4J只是一个简单的例子，您还应该使用完整的日志库，如生产中的Logback。
@@ -84,7 +84,7 @@ channel.close();
 connection.close();
 ``
 [这是整个Send.java类](http://github.com/rabbitmq/rabbitmq-tutorials/blob/master/java/Send.java)。
-> #####发送没有起作用!
+> ##### 发送没有起作用!
 >如果你是第一次使用RabbitMQ并且你没有看到"Sent"消息，你可能抓耳挠腮的想到底是哪里出的问题。可能是代理启动时没有足够空间(默认它需要至少1Gb 空间)，因此拒绝接受消息。通过检查代理的日志文件来确定这个问题，必要情况下可以降低限制大小。配置文件的文档将会告诉你怎样设置disk_free_limit。
 
 - 接收
@@ -151,7 +151,7 @@ java -cp .:amqp-client-4.0.2.jar:slf4j-api-1.7.21.jar:slf4j-simple-1.7.22.jar Se
 
 消费者将通过RabbitMQ打印从发布商获得的消息。消费者将继续运行，等待消息（使用Ctrl-C停止它），所以尝试从另一个终端运行发布者。
 
-> #####列出队列
+> ##### 列出队列
 > 您可能希望看到RabbitMQ有什么队列和其中有多少个消息。您可以使用rabbitmqctl工具（sudo root）
 > ``sudo rabbitmqctl list_queues``
 > 在Windows上，省略sudo：
@@ -159,7 +159,7 @@ java -cp .:amqp-client-4.0.2.jar:slf4j-api-1.7.21.jar:slf4j-simple-1.7.22.jar Se
 
 接下来将进入第二部分,构建一个简单的工作队列。
 
-> #####提示
+> ##### 提示
 > 为了保存输入，你可以将类路径设置到环境变量中
 > ``export CP=.:amqp-client-4.0.2.jar:slf4j-api-1.7.21.jar:slf4j-simple-1.7.22.jar
 >java -cp $CP Send``
