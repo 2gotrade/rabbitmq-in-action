@@ -1,9 +1,9 @@
-## RabbitMQ Server在SUSE Lunix的安装配置
+# RabbitMQ Server在SUSE Lunix的安装实践
 
 > 系统环境:
 SUSE Linux Enterprise Server 12 x86_64
 
-#### 一、安装Erlang/OTP环境
+## 一、安装Erlang/OTP环境
 
 - [官网的用户安装手册](http://erlang.org/doc/installation_guide/INSTALL.html#id61460)
 
@@ -167,7 +167,7 @@ wxWidgets是一个跨平台的GUI库，可以忽略(不安装)
 	wget http://ftp.gwdg.de/pub/opensuse/tumbleweed/repo/oss/suse/x86_64/wxWidgets-3_0-devel-3.0.2-12.1.x86_64.rpm
 	rpm -ivh wxWidgets-3_0-devel-3.0.2-12.1.x86_64.rpm --nodeps --force
 
-#### 二、对RabbitMQ进行安装
+## 二、对RabbitMQ进行安装
 
 1. 下载版本：版本号为3.6.9
 	
@@ -257,7 +257,7 @@ User为用户名， Tag为角色名(对应于上面的administrator，monitoring
 9. 通过浏览器访问 http://192.168.1.48:15672/ 验证，在这里同样也可以对用户进行管理
 
 
-#### 三、RabbitMQ的配置和监控
+## 三、RabbitMQ的配置和监控
 
 1. 配置文件
 
@@ -313,7 +313,7 @@ RabbitMQ提供了一个web的监控页面系统，这个系统是以Plugin的方
 	rabbitmq_management_agent
 	rabbitmq_management
   
-#### 四、RabbitMQ的性能测试
+## 四、RabbitMQ的性能测试
 
 1. 下载[测试工具](https://github.com/rabbitmq/rabbitmq-perf-test)
 
@@ -450,7 +450,7 @@ RabbitMQ提供了一个web的监控页面系统，这个系统是以Plugin的方
 由此可以推断出该情况下，MQ的发送和接收的速率是15000--19000 msg/s，平均延时300毫秒
 
 
-#### 五、RabbitMQ集群安装配置
+## 五、RabbitMQ集群安装配置
 
 1. 集群环境
 
